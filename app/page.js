@@ -2,6 +2,7 @@
 // Data fetching dilakukan langsung di server menggunakan async/await
 
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './page.module.css'
 import ContactForm from '@/components/ContactForm'
 
@@ -130,7 +131,14 @@ export default async function HomePage() {
           <div className={styles.teamGrid}>
             {team.map((member) => (
               <Link key={member.id} href={`/team/${member.id}`} className={styles.teamCard}>
-                <img src={member.avatar} alt={member.name} className={styles.teamAvatar} />
+                <Image
+                  src={member.avatar}
+                  alt={member.name}
+                  width={88}
+                  height={88}
+                  className={styles.teamAvatar}
+                  unoptimized
+                />
                 <strong>{member.name}</strong>
                 <span>{member.role}</span>
                 <div className={styles.teamSkills}>

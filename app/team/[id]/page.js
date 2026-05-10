@@ -4,6 +4,7 @@
 
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './team-detail.module.css'
 
 // Fungsi ini memberitahu Next.js halaman mana yang perlu di-generate saat build
@@ -39,7 +40,14 @@ export default async function TeamDetailPage({ params }) {
         <div className="container">
           <Link href="/about" className={styles.backBtn}>← Kembali ke Tim</Link>
           <div className={styles.profileCard}>
-            <img src={member.avatar} alt={member.name} className={styles.avatar} />
+            <Image
+              src={member.avatar}
+              alt={member.name}
+              width={140}
+              height={140}
+              className={styles.avatar}
+              unoptimized
+            />
             <div className={styles.profileInfo}>
               <div className="badge">👤 Anggota Tim</div>
               <h1>{member.name}</h1>
@@ -71,7 +79,14 @@ export default async function TeamDetailPage({ params }) {
           <div className={styles.otherGrid}>
             {allMembers.map((m) => (
               <Link key={m.id} href={`/team/${m.id}`} className={styles.otherCard}>
-                <img src={m.avatar} alt={m.name} className={styles.otherAvatar} />
+                <Image
+                  src={m.avatar}
+                  alt={m.name}
+                  width={60}
+                  height={60}
+                  className={styles.otherAvatar}
+                  unoptimized
+                />
                 <strong>{m.name}</strong>
                 <span>{m.role}</span>
               </Link>

@@ -1,5 +1,6 @@
 // SERVER COMPONENT - Data fetching tim dilakukan di server
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './about.module.css'
 
 async function getTeam() {
@@ -84,7 +85,14 @@ export default async function AboutPage() {
           <div className={styles.teamGrid}>
             {team.map((member) => (
               <Link key={member.id} href={`/team/${member.id}`} className={styles.teamCard}>
-                <img src={member.avatar} alt={member.name} className={styles.avatar} />
+                <Image
+                  src={member.avatar}
+                  alt={member.name}
+                  width={96}
+                  height={96}
+                  className={styles.avatar}
+                  unoptimized
+                />
                 <div className={styles.memberInfo}>
                   <strong>{member.name}</strong>
                   <span className={styles.role}>{member.role}</span>
