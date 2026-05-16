@@ -24,7 +24,6 @@ export default async function ManageDashboardPage({ searchParams }) {
     properties = results[0]
     allProperties = results[1]
   } catch (error) {
-    console.error('Gagal mengambil data dashboard dari Supabase:', error)
     setupError =
       error?.message ||
       'Dashboard belum bisa mengambil data Supabase. Jalankan SQL supabase/kos_properties.sql terlebih dahulu.'

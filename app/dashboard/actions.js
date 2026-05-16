@@ -84,8 +84,6 @@ export async function createKosAction(formData) {
       data: createdProperty,
     }
   } catch (error) {
-    console.error('Gagal menambahkan data kos:', error)
-
     return {
       status: 'error',
       message: getSubmitErrorMessage(error, 'Data kos belum berhasil ditambahkan.'),
@@ -126,8 +124,6 @@ export async function updateKosAction(formData) {
       data: updatedProperty,
     }
   } catch (error) {
-    console.error('Gagal memperbarui data kos:', error)
-
     return {
       status: 'error',
       message: getSubmitErrorMessage(error, 'Data kos belum berhasil diperbarui.'),
@@ -161,8 +157,6 @@ export async function deleteKosAction(id) {
       id: result.data,
     }
   } catch (error) {
-    console.error('Gagal menghapus data kos:', error)
-
     return {
       status: 'error',
       message: getSubmitErrorMessage(error, 'Data kos belum berhasil dihapus.'),

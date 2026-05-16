@@ -80,8 +80,6 @@ export async function saveContactMessage(formData) {
       errors: {},
     }
   } catch (error) {
-    console.error('Gagal menyimpan pesan kontak:', error)
-
     return {
       status: 'error',
       message: getSubmitErrorMessage(error),
